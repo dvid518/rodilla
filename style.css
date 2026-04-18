@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Miranda&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Miranda Sans', sans-serif;
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    scroll-margin-top: 120px;
+}
+
+.home {
+    background-image: url('https://images.unsplash.com/photo-1496582490020-60c1344c64aa?q=80&w=1181&auto=format&fit=crop');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.light {
+    background-image: url('https://img.freepik.com/vector-premium/fondo-abstracto-dorado-ilustracion-vectorial-lujo_29865-9539.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.dark {
+    background-image: url('https://img.freepik.com/vector-premium/fondo-abstracto-dorado-ilustracion-vectorial-lujo_29865-9539.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.miranda-sans {
+    font-family: "Miranda Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+.navbar {
+    width: 80%;
+    margin: 30px auto;
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.nav-logo {
+    font-size: 25px;
+    font-weight: bold;
+    display: inline;
+    transition: transform 0.4s ease, color 0.4s ease;
+    justify-self: start;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu a {
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    transition: font-size 0.3s ease, transform 0.4s ease;
+    justify-self: center;
+}
+
+.nav-menu a:hover {
+    transform: scale(1.05);
+}
+
+a.into {
+    color: #ffe8c9;
+}
+
+.btn a {
+    padding: 8px 18px;
+    display: inline-flex;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    transition: background-color 0.3s ease, color 1s ease, padding 0.4s ease;
+    justify-self: end;
+}
+
+.btn a:hover {
+    padding: 8px 20px;
+    border: 1px solid #fff;
+    color: #360e06;
+    font-size: 15px;
+    background-color: #fff;
+}
+
+.alt-btn a {
+    padding: 8px 18px;
+    display: inline-flex;
+    border: 1px solid #360e06;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #360e06;
+    font-size: 15px;
+    transition: background-color 0.3s ease, color 1s ease, padding 0.4s ease;
+    justify-self: end;
+}
+
+.alt-btn a:hover {
+    padding: 8px 20px;
+    border: 1px solid #360e06;
+    color: #fff;
+    font-size: 15px;
+    background-color: #360e06;
+}
+
+.text {
+    color: #fff;
+}
+
+.alt-text {
+    color: #360e06;
+}
+
+.item {
+    color: #fff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.item:hover {
+    color: #ffe8c9;
+    transform: scale(1.05);
+}
+
+.alt-item {
+    color: #360e06;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.alt-item:hover {
+    color: #5f190b;
+    transform: scale(1.05);
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+footer {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+
+.glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 2px 32px rgba(0, 0, 0, 0.025),
+        0 4px 5px rgba(0, 0, 0, 0.025);
+}
+
+.copy {
+    display: inline-block;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 15px;
+    align-items: center;
+    border-radius: 50px;
+    transition: padding 0.4s ease;
+}
+
+.copy:hover {
+    padding: 10px 20px;
+}
+
+.alt-copy {
+    display: inline-block;
+    color: #360e06;
+    font-weight: 500;
+    padding: 10px 15px;
+    align-items: center;
+    border-radius: 50px;
+    transition: padding 0.4s ease;
+}
+
+.alt-copy:hover {
+    padding: 10px 20px;
+}
+
+.phrase {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding-top: 50px;
+    font-weight: bold;
+}
+
+.fases {
+    width: 500px;
+    margin: 50px auto;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #360e06;
+}
+
+.fase {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+}
+
+.fase.act {
+    border-radius: 50px;
+    background-color: #ffffff5f;
+    padding: 10px;
+}
+
+.fase span {
+    display: block;
+    border-radius: 50px;
+
+}
+
+.reserva {
+    text-align: center;
+    margin-top: auto;
+    color: #360e06;
+}
+
+.reserva h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.personas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.personas button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    color: #360e06;
+    border: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* estilos del botón de personas */
+.personas input {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: transparent;
+    background: transparent;
+    color: #360e06;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    appearance: textfield;
+    text-align: center;
+}
+
+/* estilos del texto del botón de personas */
+.personas input::placeholder {
+    color: #360e06;
+    text-align: center;
+    justify-content: center;
+    transition: color 0.4s ease;
+}
+
+/* estilos del texto del botón de personas cuando está seleccionado */
+.personas input:focus::placeholder {
+    color: transparent;
+}
+
+/* estilos del botón de personas cuando está seleccionado */
+.personas input:focus {
+    text-align: center;
+    justify-content: center;
+    outline: none;
+}
+
+.personas button:hover, .personas input:hover {
+    background: #ffffff5f;
+    color: #360e06;
+    transform: scale(1.1);
+}
+
+/* eliminar botones laterales de input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    -moz-appearance: textfield;
+}
+
+.nota {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* bloque de menú */
+.menu {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* SUBTABS */
+.subtabs {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.subtabs button {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: #360e06;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.subtabs button:hover {
+    padding: 0px 18px;
+}
+
+.subtabs .btn1:hover {
+    background: #721e0e;
+    color: #fff;
+}
+
+.subtabs .btn2:hover {
+    background: #ffd374;
+    color: #360e06;
+}
+
+.subtabs .btn3:hover {
+    background: #176b55;
+    color: #fff;
+}
+
+.subtabs button.active {
+    background: #360e06;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* TITULO SECCION */
+.menu h2 {
+    font-size: 30px;
+    margin-top: 40px;
+    color: #1e3932;
+}
+
+/* LINEA */
+.linea {
+    width: 100%;
+    height: 2px;
+    background: #1e3932;
+    margin: 20px 0 40px 0;
+}
+
+/* PRODUCTOS */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* CARD */
+.card-producto {
+    width: 220px;
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    background-color: #ffffff36;
+}
+
+/* HOVER */
+.card-producto:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background-color: #ffffff83;
+}
+
+/* IMAGEN */
+.card-producto img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 10px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.card-producto.cp1 img{
+    background: #721e0e;
+}
+
+.card-producto.cp2 img{
+    background: #ffd374;
+}
+
+.card-producto.cp3 img{
+    background: #176b55;
+}
+
+/* TEXTO */
+.card-producto h4 {
+    margin: 10px 0;
+    color: #333;
+}
+
+/* PRECIO */
+.precio {
+    margin-top: 10px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+.precio.cp1 {
+    color: #721e0e;
+    background: #721f0e28;
+}
+
+.precio.cp2 {
+    color: #ffd374;
+    background: #ffd37428;
+}
+
+.precio.cp3 {
+    color: #176b55;
+    background: #176b5525;
+}
+
+/* === NOSOTROS ==== */
+.nosotros {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+    color: #360e06;
+}
+
+.nosotros h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.intro {
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Informacion restaurante */
+.informacion-restaurante {
+    justify-content: flex-start;
+    gap: 100xpx;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.box {
+    width: 280px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* VALORES */
+.valores h2 {
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 220px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
