@@ -36,7 +36,7 @@ a {
 }
 
 .dark {
-    background-image: url('https://wallpapers.com/images/hd/dark-brown-background-4000-x-6000-a1inf53isrdp5x0v.jpg');
+    background-image: url('https://u7.uidownload.com/vector/118/332/vector-abstract-brown-background-ai-eps.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,7 +106,7 @@ a.into {
 .btn a:hover {
     padding: 8px 20px;
     border: 1px solid #fff;
-    color: #360e06;
+    color: #1e3932;
     font-size: 15px;
     background-color: #fff;
 }
@@ -114,10 +114,10 @@ a.into {
 .alt-btn a {
     padding: 8px 18px;
     display: inline-flex;
-    border: 1px solid #360e06;
+    border: 1px solid #1e3932;
     border-radius: 50px;
     text-decoration: none;
-    color: #360e06;
+    color: #1e3932;
     font-size: 15px;
     transition: background-color 0.3s ease, color 1s ease, padding 0.4s ease;
     justify-self: end;
@@ -125,10 +125,10 @@ a.into {
 
 .alt-btn a:hover {
     padding: 8px 20px;
-    border: 1px solid #360e06;
+    border: 1px solid #1e3932;
     color: #fff;
     font-size: 15px;
-    background-color: #360e06;
+    background-color: #1e3932;
 }
 
 .text {
@@ -155,7 +155,7 @@ a.into {
 }
 
 .alt-item:hover {
-    color: #5f190b;
+    color: #1e3932;
     transform: scale(1.05);
 }
 
@@ -210,11 +210,12 @@ footer {
     padding: 10px 15px;
     align-items: center;
     border-radius: 50px;
-    transition: padding 0.4s ease;
+    transition: padding 0.4s ease, color 0.5s ease;
 }
 
 .alt-copy:hover {
     padding: 10px 20px;
+    color: #1e3932;
 }
 
 .phrase {
@@ -235,7 +236,7 @@ footer {
     align-items: center;
     justify-content: center;
     position: relative;
-    color: #360e06;
+    color: #1e3932;
 }
 
 .fase {
@@ -260,12 +261,12 @@ footer {
 .reserva {
     text-align: center;
     margin-top: auto;
-    color: #360e06;
 }
 
 .reserva h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
+    color: #1e3932;
 }
 
 .personas {
@@ -280,11 +281,12 @@ footer {
     height: 50px;
     border-radius: 50%;
     background: transparent;
-    color: #360e06;
+    color: #1e3932;
     border: transparent;
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
+    font-family: 'Miranda Sans', sans-serif;
 }
 
 /* estilos del botón de personas */
@@ -294,20 +296,25 @@ footer {
     border-radius: 50%;
     border: transparent;
     background: transparent;
-    color: #360e06;
+    color: #1e3932;
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
     appearance: textfield;
     text-align: center;
+    font-family: 'Miranda Sans', sans-serif;
 }
 
 /* estilos del texto del botón de personas */
 .personas input::placeholder {
-    color: #360e06;
+    color: #1e3932;
     text-align: center;
     justify-content: center;
     transition: color 0.4s ease;
+}
+
+.personas input:hover::placeholder {
+    color: #fff;
 }
 
 /* estilos del texto del botón de personas cuando está seleccionado */
@@ -324,7 +331,8 @@ footer {
 
 .personas button:hover, .personas input:hover {
     background: #ffffff5f;
-    color: #360e06;
+    background-color: #1e3932b7;
+    color: #fff;
     transform: scale(1.1);
 }
 
@@ -342,6 +350,7 @@ input {
 .nota {
     font-size: 14px;
     opacity: 0.8;
+    color: #1e3932;
 }
 
 /* bloque de menú */
@@ -553,7 +562,7 @@ input {
 
 .contacto h1 {
     text-align: center;
-    color: #360e06;
+    color: #1e3932;
     margin-bottom: 40px;
     display: flex;
 }
@@ -571,14 +580,15 @@ form .formulario input, form .formulario textarea {
     padding: 20px;
     margin: 10px;
     width: 450px;
-    color: #360e06;
+    color: #1e3932;
     resize: vertical;
     overflow: hidden;
     font-family: 'Miranda Sans', sans-serif;
+    transition: border-color 0.3s ease;
 }
 
 form .formulario input::placeholder, form .formulario textarea::placeholder {
-    color: #360e06;
+    color: #1e3932;
     opacity: 50%;
     text-indent: 0px;
     font-family: 'Miranda Sans', sans-serif;
@@ -587,6 +597,7 @@ form .formulario input::placeholder, form .formulario textarea::placeholder {
 form .formulario input:focus, form .formulario textarea:focus {
     border-collapse: collapse;
     outline: none;
+    border-color: #1e3932;
     overflow: hidden;
 }
 
@@ -619,27 +630,31 @@ form .formulario input:focus, form .formulario textarea:focus {
     align-items: center;
     line-height: 1;
     padding-left: 10px;
-    padding-top: 15px;
     flex-wrap: wrap;
-    color: #360e06;
+    color: #1e3932;
+}
+
+.submit label input {
+    border-radius: 10px;
+    margin-right: 10px;
 }
 
 .submit button {
+    font-family: 'Miranda Sans', sans-serif;
     margin-top: 30px;
     margin-bottom: 45px;
     border-radius: 20px;
     display: block;
     font-size: 15px;
     padding: 10px 20px;
-    border: transparent;
-    background-color: #fff;
-    color: #360e06;
+    border-color: #1e3932;
+    color: #1e3932;
     cursor: pointer;
     transition: color 0.5s ease, background-color 0.4s ease, padding 0.3s ease;
 }
 
 .submit button:hover {
     color: #fff;
-    background-color: #360e06;
+    background-color: #1e3932;
     padding: 10px 25px;
 }
