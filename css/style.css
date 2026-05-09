@@ -135,10 +135,6 @@ a.into {
     color: #fff;
 }
 
-.alt-text {
-    color: #360e06;
-}
-
 .item {
     color: #fff;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -230,7 +226,8 @@ footer {
 
 .fases {
     width: 500px;
-    margin: 50px auto;
+    margin: auto;
+    margin-bottom: 50px;
     border-radius: 50px;
     display: inline-flex;
     align-items: center;
@@ -240,10 +237,14 @@ footer {
 }
 
 .fase {
-    flex: 1;
+    flex: auto;
     text-align: center;
     font-size: 14px;
     position: relative;
+}
+
+.fase:hover {
+    cursor: pointer;
 }
 
 .fase.act {
@@ -258,15 +259,47 @@ footer {
 
 }
 
-.reserva {
+.paso {
+    width: 100%;
+    min-height: 70vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
     text-align: center;
     margin-top: auto;
 }
 
-.reserva h1 {
+.paso h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
     color: #1e3932;
+}
+
+.paso.activo {
+    display: flex;
+}
+
+.continuar {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 40px;
+    border: #1e3932 solid 1px;
+    background-color: transparent;
+    color: #1e3932;
+    font-family: inherit;
+    transition: 
+        padding 0.3s ease,
+        color 0.4s ease,
+        background-color 0.3s ease;
+}
+
+.continuar:hover {
+    cursor: pointer;
+    padding: 10px 22px;
+    color: #fff;
+    background-color: #1e3932;
 }
 
 .personas {
@@ -314,7 +347,7 @@ footer {
 }
 
 .personas input:hover::placeholder {
-    color: #fff;
+    color: #1e3932;
 }
 
 /* estilos del texto del botón de personas cuando está seleccionado */
@@ -330,10 +363,211 @@ footer {
 }
 
 .personas button:hover, .personas input:hover {
-    background: #ffffff5f;
-    background-color: #1e3932b7;
-    color: #fff;
+    background-color: #c2ffef42;
+    color: #1e3932;
     transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.personas button.active, .personas input.active {
+    background-color: #1e3932;
+    color: #fff;
+}
+
+/* estilo del input fecha */
+* {
+    box-sizing: border-box;
+}
+
+.paso-fecha {
+    display: inline-block;
+    width: 100px;
+    justify-content: center;
+}
+
+.fecha-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 170px;
+    margin: 0 auto;
+}
+
+#fecha {
+    width: 100%;
+    border: #1e3932 solid 1px;
+    color: #1e3932;
+    padding: 15px 45px 15px 20px;
+    border-radius: 50px;
+    font-family: inherit;
+    background-color: transparent;
+    transition:
+        border 0.3s ease,
+        background-color 0.3s ease,
+        color 0.4s ease,
+        box-shadow 0.6s ease;
+    outline: none;
+    box-shadow: none;
+}
+
+#fecha:hover {
+    border: #1e3932 solid 1px;
+    color: #fff;
+    background-color: #1e3932;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+#fecha::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.custom-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    z-index: 5;
+    pointer-events: none;
+    transition: right 0.3s ease;
+}
+
+.paso {
+    display: none;
+}
+
+/* estilo de input hora */
+.hora-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+#hora {
+    padding: 15px 20px;
+    border-radius: 40px;
+    border: #1e3932 solid 1px;
+    color: #1e3932;
+    font-family: inherit;
+    background-color: transparent;
+    transition:
+        border 0.3s ease,
+        background-color 0.3s ease,
+        color 0.4s ease,
+        box-shadow 0.6s ease;
+    outline: none;
+    box-shadow: none;appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#hora:hover {
+    border: #1e3932 solid 1px;
+    color: #fff;
+    background-color: #1e3932;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* estilo de input datos */
+.contacto, form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form .datos-box input, form .datos-box textarea {
+    display: flex;
+    border-collapse: collapse;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 10px;
+    width: 450px;
+    color: #1e3932;
+    resize: vertical;
+    overflow: hidden;
+    font-family: 'Miranda Sans', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+form .datos-box input::placeholder, form .datos-box textarea::placeholder {
+    color: #1e3932;
+    opacity: 50%;
+    text-indent: 0px;
+    font-family: 'Miranda Sans', sans-serif;
+}
+
+form .datos-box input:focus, form .datos-box textarea:focus {
+    border-collapse: collapse;
+    outline: none;
+    border-color: #1e3932;
+    overflow: hidden;
+}
+
+/* estilo tabla confirmación */
+.tabla-resumen {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 30px;
+    border: #1e3932 solid 1px;
+}
+
+.resumen-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(30, 57, 50, 0.1);
+}
+
+.resumen-item:last-child {
+    border-bottom: none;
+}
+
+.acciones-finales {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+}
+
+.conf-edit {
+    width: auto;
+    padding: 10px 15px;
+    border-radius: 40px;
+    border: #1e3932 solid 1px;
+    background-color: transparent;
+    color: #1e3932;
+    font-family: inherit;
+    transition: 
+        padding 0.3s ease,
+        color 0.4s ease,
+        background-color 0.3s ease;
+}
+
+.conf-edit:hover {
+    cursor: pointer;
+    padding: 10px 22px;
+    color: #fff;
+    background-color: #1e3932;
 }
 
 /* eliminar botones laterales de input */
