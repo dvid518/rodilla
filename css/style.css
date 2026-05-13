@@ -616,13 +616,13 @@ input {
 }
 
 .subtabs .btn1:hover {
-    background: #721e0e;
+    background: #a82b13;
     color: #fff;
 }
 
 .subtabs .btn2:hover {
-    background: #ffd374;
-    color: #360e06;
+    background: #720c61;
+    color: #fff;
 }
 
 .subtabs .btn3:hover {
@@ -655,8 +655,12 @@ input {
 .productos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
+    width: fit-content;
+    max-width: 95%;
+    margin: 0 auto;
     gap: 25px;
+    padding: 0px 20px;
 }
 
 /* CARD */
@@ -666,7 +670,7 @@ input {
     border-radius: 15px;
     text-align: center;
     transition: 0.3s;
-    background-color: #ffffff36;
+    background-color: #ffffff53;
 }
 
 /* HOVER */
@@ -678,24 +682,30 @@ input {
 
 /* IMAGEN */
 .card-producto img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
     padding: 10px;
-    object-fit: cover;
     margin-bottom: 15px;
+    transform: scale(1.25);
 }
 
 .card-producto.cp1 img{
-    background: #721e0e;
+    background: #a82b13;
+    padding: 20px;
+    border-radius: 50%;
 }
 
 .card-producto.cp2 img{
-    background: #ffd374;
+    background: #720c61;
+    padding: 20px;
+    border-radius: 50%;
 }
 
 .card-producto.cp3 img{
     background: #176b55;
+    padding: 20px;
+    border-radius: 50%;
 }
 
 /* TEXTO */
@@ -719,13 +729,13 @@ input {
 }
 
 .precio.cp2 {
-    color: #ffd374;
-    background: #ffd37428;
+    color: #720c61;
+    background: #720c6128;
 }
 
 .precio.cp3 {
     color: #176b55;
-    background: #176b5525;
+    background: #176b5528;
 }
 
 /* === NOSOTROS ==== */
