@@ -185,6 +185,51 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.navbar.glass {
+    backdrop-filter: blur(10px);
+    background-color: #ffffff17;
+    transition:
+        backdrop-filter 1s ease,
+        background-color 1s ease;
+}
+
+.navbar.glass:hover {
+    animation: glass-move 5s ease-in-out infinite alternate;
+
+}
+
+@keyframes glass-move {
+    0% {
+        backdrop-filter: blur(10px);
+        background-color: #ffffff17;
+    }
+
+    20% {
+        backdrop-filter: blur(12px);
+        background-color: #ffffff1b;
+    }
+
+    40% {
+        backdrop-filter: blur(15px);
+        background-color: #ffffff1f;
+    }
+
+    60% {
+        backdrop-filter: blur(18px);
+        background-color: #ffffff21;
+    }
+
+    80% {
+        backdrop-filter: blur(15px);
+        background-color: #ffffff1d;
+    }
+
+    100% {
+        backdrop-filter: blur(10px);
+        background-color: #ffffff17;
+    }
+}
+
 .copy {
     display: inline-block;
     color: #fff;
@@ -594,6 +639,12 @@ input {
     color: #1e3932;
 }
 
+.alt-nota {
+    font-size: 14px;
+    opacity: 0.8;
+    color: #fff;
+}
+
 /* bloque de menú */
 .menu {
     max-width: 1100px;
@@ -861,7 +912,7 @@ input {
 
 .contacto h1 {
     text-align: center;
-    color: #1e3932;
+    color: #fff;
     margin-bottom: 40px;
     display: flex;
 }
@@ -879,7 +930,7 @@ form .formulario input, form .formulario textarea {
     padding: 20px;
     margin: 10px;
     width: 450px;
-    color: #1e3932;
+    color: #fff;
     resize: vertical;
     overflow: hidden;
     font-family: 'Miranda Sans', sans-serif;
@@ -888,7 +939,7 @@ form .formulario input, form .formulario textarea {
 
 form .formulario input::placeholder,
 form .formulario textarea::placeholder {
-    color: #1e3932;
+    color: #fff;
     opacity: 50%;
     text-indent: 0px;
     font-family: 'Miranda Sans', sans-serif;
@@ -898,7 +949,7 @@ form .formulario input:focus,
 form .formulario textarea:focus {
     border-collapse: collapse;
     outline: none;
-    border-color: #1e3932;
+    border-color: #fff;
     overflow: hidden;
 }
 
@@ -932,7 +983,7 @@ form .formulario textarea:focus {
     line-height: 1;
     padding-left: 10px;
     flex-wrap: wrap;
-    color: #1e3932;
+    color: #fff;
 }
 
 .submit label input {
@@ -948,14 +999,14 @@ form .formulario textarea:focus {
     display: block;
     font-size: 15px;
     padding: 10px 20px;
-    border-color: #1e3932;
-    color: #1e3932;
+    border-color: #fff;
+    color: #fff;
     cursor: pointer;
     transition: color 0.5s ease, background-color 0.4s ease, padding 0.3s ease;
 }
 
 .submit button:hover {
-    color: #fff;
-    background-color: #1e3932;
+    color: #1e3932;
+    background-color: #fff;
     padding: 10px 25px;
 }
