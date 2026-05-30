@@ -172,6 +172,7 @@ footer {
     display: flex;
     margin-top: auto;
     margin-bottom: 30px;
+    gap: 6px;
 }
 
 /* efecto cristal, solo aplicar la clase al cuerpo */
@@ -195,7 +196,6 @@ footer {
 
 .navbar.glass:hover {
     animation: glass-move 5s ease-in-out infinite alternate;
-
 }
 
 @keyframes glass-move {
@@ -203,27 +203,18 @@ footer {
         backdrop-filter: blur(10px);
         background-color: #ffffff17;
     }
-
-    20% {
-        backdrop-filter: blur(12px);
+    25% {
+        backdrop-filter: blur(15px);
         background-color: #ffffff1b;
     }
-
-    40% {
-        backdrop-filter: blur(15px);
+    50% {
+        backdrop-filter: blur(20px);
         background-color: #ffffff1f;
     }
-
-    60% {
-        backdrop-filter: blur(18px);
-        background-color: #ffffff21;
-    }
-
-    80% {
+    75% {
         backdrop-filter: blur(15px);
         background-color: #ffffff1d;
     }
-
     100% {
         backdrop-filter: blur(10px);
         background-color: #ffffff17;
@@ -237,11 +228,12 @@ footer {
     padding: 10px 15px;
     align-items: center;
     border-radius: 50px;
-    transition: padding 0.4s ease;
+    transition: padding 0.4s ease, color 0.3s ease;
 }
 
 .copy:hover {
     padding: 10px 20px;
+    color: #ffe8c9;
 }
 
 .alt-copy {
@@ -256,6 +248,38 @@ footer {
 
 .alt-copy:hover {
     padding: 10px 20px;
+    color: #1e3932;
+}
+
+svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-btn {
+    display: inline-block;
+    color: #fff;
+    padding: 8px 9px;
+    border-radius: 50px;
+    transition: padding 0.4s ease, color 0.3s ease;
+}
+
+.footer-btn:hover {
+    padding: 8px 15px;
+    color: #ffe8c9;
+}
+
+.alt-footer-btn {
+    display: inline-block;
+    color: #360e06;
+    padding: 8px 9px;
+    border-radius: 50px;
+    transition: padding 0.4s ease, color 0.3s ease;
+}
+
+.alt-footer-btn:hover {
+    padding: 8px 15px;
     color: #1e3932;
 }
 
@@ -779,6 +803,10 @@ input {
     display: inline-block;
     padding: 5px 12px;
     border-radius: 20px;
+}
+
+.precio:hover {
+    cursor: pointer;
 }
 
 .precio.cp1 {
