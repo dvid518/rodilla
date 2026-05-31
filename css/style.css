@@ -10,6 +10,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-attachment: fixed;
 }
 
 section {
@@ -29,14 +30,14 @@ a {
 }
 
 .light {
-    background-image: url('https://img.freepik.com/vector-premium/fondo-abstracto-dorado-ilustracion-vectorial-lujo_29865-9539.jpg');
+    background-image: url('../img/light.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .dark {
-    background-image: url('https://u7.uidownload.com/vector/118/332/vector-abstract-brown-background-ai-eps.jpg');
+    background-image: url('../img/dark.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -68,6 +69,7 @@ a {
     display: inline;
     transition: transform 0.4s ease, color 0.4s ease;
     justify-self: start;
+    text-shadow: 0 5px 15px rgb(255, 226, 172);
 }
 
 .nav-logo:hover {
@@ -82,6 +84,7 @@ a {
     transition: all 0.4s ease;
     justify-self: center;
     padding: 0px 0px;
+    text-shadow: 0 5px 15px rgb(255, 226, 172);
 }
 
 .nav-menu a:hover {
@@ -121,7 +124,8 @@ a.into {
     text-decoration: none;
     color: #1e3932;
     font-size: 15px;
-    transition: background-color 0.3s ease, color 1s ease, padding 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0, 90, 53, 0.151);
+    transition: all 0.4s ease;
     justify-self: end;
 }
 
@@ -420,7 +424,7 @@ svg {
 }
 
 .personas input:hover::placeholder {
-    color: #1e3932;
+    color: #6d1834;
 }
 
 /* estilos del texto del botón de personas cuando está seleccionado */
@@ -437,8 +441,8 @@ svg {
 
 .personas button:hover,
 .personas input:hover {
-    background-color: #c2ffef42;
-    color: #1e3932;
+    background-color: #ffa9ca42;
+    color: #6d1834;
     transform: scale(1.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
@@ -717,9 +721,8 @@ input {
 }
 
 .subtabs button.active {
-    background: #360e06;
+    background: #1e3932;
     color: #fff;
-    font-weight: bold;
 }
 
 /* TITULO SECCION */
@@ -756,14 +759,13 @@ input {
     border-radius: 15px;
     text-align: center;
     transition: 0.3s;
-    background-color: #ffffff53;
 }
 
 /* HOVER */
 .card-producto:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    background-color: #ffffff83;
+    background-color: #ffffff3a;
 }
 
 /* IMAGEN */
@@ -779,7 +781,7 @@ input {
 }
 
 .card-producto img:hover {
-    animation: bg-gradient 120s linear infinite;
+    animation: bg-gradient 120s infinite;
 }
 
 @keyframes bg-gradient {
