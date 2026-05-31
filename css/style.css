@@ -79,12 +79,14 @@ a {
     font-size: 20px;
     margin-left: 15px;
     margin-right: 15px;
-    transition: font-size 0.3s ease, transform 0.4s ease;
+    transition: all 0.4s ease;
     justify-self: center;
+    padding: 0px 0px;
 }
 
 .nav-menu a:hover {
     transform: scale(1.05);
+    padding: 0px 5px;
 }
 
 a.into {
@@ -137,7 +139,7 @@ a.into {
 
 .item {
     color: #fff;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .item:hover {
@@ -147,7 +149,7 @@ a.into {
 
 .alt-item {
     color: #360e06;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .alt-item:hover {
@@ -172,7 +174,7 @@ footer {
     display: flex;
     margin-top: auto;
     margin-bottom: 30px;
-    gap: 6px;
+    gap: 10px;
 }
 
 /* efecto cristal, solo aplicar la clase al cuerpo */
@@ -258,6 +260,7 @@ svg {
 }
 
 .footer-btn {
+    cursor: pointer;
     display: inline-block;
     color: #fff;
     padding: 8px 9px;
@@ -271,6 +274,7 @@ svg {
 }
 
 .alt-footer-btn {
+    cursor: pointer;
     display: inline-block;
     color: #360e06;
     padding: 8px 9px;
@@ -708,7 +712,7 @@ input {
 }
 
 .subtabs .btn3:hover {
-    background: #176b55;
+    background: #234564;
     color: #fff;
 }
 
@@ -770,6 +774,21 @@ input {
     padding: 10px;
     margin-bottom: 15px;
     transform: scale(1.25);
+    margin-top: 12px;
+    transition: all 0.5 s ease;
+}
+
+.card-producto img:hover {
+    animation: bg-gradient 120s linear infinite;
+}
+
+@keyframes bg-gradient {
+    0% {
+        transform: rotate(0deg) scale(1.25);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.25);
+    }
 }
 
 .card-producto.cp1 img {
@@ -785,7 +804,7 @@ input {
 }
 
 .card-producto.cp3 img {
-    background: #176b55;
+    background: #234564;
     padding: 20px;
     border-radius: 50%;
 }
@@ -820,8 +839,8 @@ input {
 }
 
 .precio.cp3 {
-    color: #176b55;
-    background: #176b5528;
+    color: #234564;
+    background: #23456428;
 }
 
 /* === NOSOTROS ==== */
@@ -895,9 +914,7 @@ input {
     width: 300px;
     padding: 30px;
     border-radius: 20px;
-    transition:
-        transform 0.4s ease,
-        box-shadow 0.4s ease;
+    transition: all 0.4s ease;
 }
 
 .nos-card:hover {
