@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Miranda&display=swap');
-
 html {
     scroll-behavior: smooth;
 }
@@ -69,7 +67,6 @@ a {
     display: inline;
     transition: transform 0.4s ease, color 0.4s ease;
     justify-self: start;
-    text-shadow: 0 5px 15px rgb(255, 226, 172);
 }
 
 .nav-logo:hover {
@@ -84,7 +81,6 @@ a {
     transition: all 0.4s ease;
     justify-self: center;
     padding: 0px 0px;
-    text-shadow: 0 5px 15px rgb(255, 226, 172);
 }
 
 .nav-menu a:hover {
@@ -96,44 +92,42 @@ a.into {
     color: #ffe8c9;
 }
 
+/* botón */
 .btn a {
     padding: 8px 18px;
     display: inline-flex;
-    border: 1px solid #fff;
     border-radius: 50px;
     text-decoration: none;
-    color: #fff;
     font-size: 15px;
-    transition: background-color 0.3s ease, color 1s ease, padding 0.4s ease;
+    transition: all 0.4s ease;
     justify-self: end;
 }
 
 .btn a:hover {
     padding: 8px 20px;
+}
+
+.dark .btn a {
+    color: #fff;
+    border: 1px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.dark .btn a:hover {
     border: 1px solid #fff;
     color: #1e3932;
-    font-size: 15px;
     background-color: #fff;
 }
 
-.alt-btn a {
-    padding: 8px 18px;
-    display: inline-flex;
-    border: 1px solid #1e3932;
-    border-radius: 50px;
-    text-decoration: none;
+.light .btn a {
     color: #1e3932;
-    font-size: 15px;
-    box-shadow: 0 5px 15px rgba(0, 90, 53, 0.151);
-    transition: all 0.4s ease;
-    justify-self: end;
+    border: 1px solid #1e3932;
+    transition: all 0.3s ease;
 }
 
-.alt-btn a:hover {
-    padding: 8px 20px;
+.light .btn a:hover {
     border: 1px solid #1e3932;
     color: #fff;
-    font-size: 15px;
     background-color: #1e3932;
 }
 
@@ -141,35 +135,38 @@ a.into {
     color: #fff;
 }
 
+/* pestañas */
 .item {
-    color: #fff;
     transition: all 0.3s ease;
 }
 
 .item:hover {
+    transform: scale(1.05);
+}
+
+.dark .item {
+    color: #fff;
+}
+
+.dark .item:hover {
     color: #ffe8c9;
-    transform: scale(1.05);
 }
 
-.alt-item {
+.light .item {
     color: #360e06;
-    transition: all 0.3s ease;
+    text-shadow: 0 5px 15px rgb(255, 226, 172);
 }
 
-.alt-item:hover {
+.light .item:hover {
     color: #1e3932;
-    transform: scale(1.05);
 }
 
+/* bloques */
 header {
     background: #111;
     color: white;
     padding: 15px;
     text-align: center;
-}
-
-a {
-    text-decoration: none;
 }
 
 footer {
@@ -181,7 +178,11 @@ footer {
     gap: 10px;
 }
 
-/* efecto cristal, solo aplicar la clase al cuerpo */
+a {
+    text-decoration: none;
+}
+
+/* cristal */
 .glass {
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -200,60 +201,67 @@ footer {
         background-color 1s ease;
 }
 
-.navbar.glass:hover {
-    animation: glass-move 5s ease-in-out infinite alternate;
-}
-
-@keyframes glass-move {
-    0% {
-        backdrop-filter: blur(10px);
-        background-color: #ffffff17;
-    }
-    25% {
-        backdrop-filter: blur(15px);
-        background-color: #ffffff1b;
-    }
-    50% {
-        backdrop-filter: blur(20px);
-        background-color: #ffffff1f;
-    }
-    75% {
-        backdrop-filter: blur(15px);
-        background-color: #ffffff1d;
-    }
-    100% {
-        backdrop-filter: blur(10px);
-        background-color: #ffffff17;
-    }
-}
-
+/* copyright */
 .copy {
     display: inline-block;
-    color: #fff;
     font-weight: 500;
     padding: 10px 15px;
     align-items: center;
     border-radius: 50px;
-    transition: padding 0.4s ease, color 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .copy:hover {
     padding: 10px 20px;
+    cursor: default;
+}
+
+.dark .copy {
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.dark .copy:hover {
     color: #ffe8c9;
 }
 
-.alt-copy {
-    display: inline-block;
+.light .copy {
     color: #360e06;
-    font-weight: 500;
-    padding: 10px 15px;
-    align-items: center;
-    border-radius: 50px;
-    transition: padding 0.4s ease, color 0.5s ease;
+    transition: all 0.3s ease;
 }
 
-.alt-copy:hover {
-    padding: 10px 20px;
+.light .copy:hover {
+    color: #1e3932;
+}
+
+/* botones del footer */
+.footer-btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 9px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+.footer-btn:hover {
+    padding: 8px 15px;
+}
+
+.dark .footer-btn {
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.dark .footer-btn:hover {
+    color: #ffe8c9;
+}
+
+.light .footer-btn {
+    color: #360e06;
+    transition: all 0.3s ease;
+}
+
+.light .footer-btn:hover {
     color: #1e3932;
 }
 
@@ -263,52 +271,16 @@ svg {
     justify-content: center;
 }
 
-.footer-btn {
-    cursor: pointer;
-    display: inline-block;
-    color: #fff;
-    padding: 8px 9px;
-    border-radius: 50px;
-    transition: padding 0.4s ease, color 0.3s ease;
-}
-
-.footer-btn:hover {
-    padding: 8px 15px;
-    color: #ffe8c9;
-}
-
-.alt-footer-btn {
-    cursor: pointer;
-    display: inline-block;
-    color: #360e06;
-    padding: 8px 9px;
-    border-radius: 50px;
-    transition: padding 0.4s ease, color 0.3s ease;
-}
-
-.alt-footer-btn:hover {
-    padding: 8px 15px;
-    color: #1e3932;
-}
-
+/* texto nota */
 .nota {
     font-size: 14px;
     opacity: 0.8;
+}
+
+.light .nota {
     color: #1e3932;
 }
 
-.alt-nota {
-    font-size: 14px;
-    opacity: 0.8;
+.dark .nota {
     color: #fff;
-}
-
-.phrase {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    color: #fff;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding-top: 50px;
-    font-weight: bold;
 }

@@ -46,18 +46,60 @@ function nextPaso() {
     }
 }
 
+// validaciones
+function validateDato(pasoActual) {
+    switch (pasoActual) {
+        case 0:
+            if (!personas||personas.trim()==="") {
+                alert("Selecciona o ingresa personas")
+                return false
+            }
+            break
+        case 1:
+            if (!fecha) {
+                alert("Selecciona una fecha")
+                return false
+            }
+            break
+        case 2:
+            if (!hora) {
+                alert("Selecciona una hora")
+                return false
+            }
+            break
+        case 3:
+            if (!nombre||nombre.trim()==="") {
+                alert("Ingresa nombre")
+                return false
+            }
+            if (!emai||email.trim()==="") {
+                alert("Ingresa email")
+                return false
+            }
+            break
+    }
+    return true
+}
+
 // botón continuar
 document.querySelectorAll(".continuar").forEach(btn => {
     btn.addEventListener("click", () => {
-        nombre=document.getElementById("nombre").value;
-        email=document.getElementById("email").value;
-        fecha=document.getElementById("fecha").value;
-        hora=document.getElementById("hora").value;
-        if (!personas && inputPersonas.value.trim() !== "") {
-            personas=inputPersonas.value;
+        const nombreValor=document.getElementById("nombre").value
+        const emailValor=document.getElementById("email").value
+        const fechaValor=document.getElementById("fecha").value
+        const horaValor=document.getElementById("hora").value
+        if (validateDato(pasoActual)) {
+            nombre=nombreValor
+            email=emailValor
+            fecha=fechaValor
+            hora=horaValor
+        } else {
+            return;
         }
-        
-        nextPaso();
+        if (!personas && inputPersonas.value.trim() !== "") {
+            personas=inputPersonas.value
+        }
+        nextPaso()
     });
 });
 
@@ -91,24 +133,15 @@ inputPersonas.addEventListener("input", (e) => {
 });
 
 // fecha
-document.getElementById("fecha").addEventListener("change", (e) => {
-    fecha=e.target.value;
-});
+document.getElementById("fecha").addEventListener("change", (e) => {fecha=e.target.value});
 
 // hora
-
-document.getElementById("hora").addEventListener("change", (e) => {
-    hora=e.target.value;
-});
+document.getElementById("hora").addEventListener("change", (e) => {hora=e.target.value});
 
 // datos usuario
-document.getElementById("nombre").addEventListener("change", (e) => {
-    nombre=e.target.value;
-});
+document.getElementById("nombre").addEventListener("change", (e) => {nombre=e.target.value});
 
-document.getElementById("email").addEventListener("change", (e) => {
-    email=e.target.value;
-});
+document.getElementById("email").addEventListener("change", (e) => {email=e.target.value});
 
 // llenar resumen
 function fillResumen() {
@@ -123,3 +156,12 @@ function fillResumen() {
 document.addEventListener("DOMContentLoaded", () => {
     showPaso(0);
 });
+
+// onclick
+function confirmReserva() {
+    alert("Pronto podrás agendar reservas.")
+}
+
+function editReserva() {
+    alert("Pronto podrás editar las reservas.")
+}
