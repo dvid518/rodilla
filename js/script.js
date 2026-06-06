@@ -59,6 +59,9 @@ async function randomBackground() {
     if (body.classList.contains("home")) return
     const theme=body.classList.contains("dark")?"dark":"light"
     const bg=getRandomBg(theme)
+    if (bg==="dark2") {
+        body.style.backgroundColor="#1e3932"
+    }
     const url=`img/avif/${bg}.avif`
     await new Promise((resolve, reject) => {
         const img=new Image()
