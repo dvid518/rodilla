@@ -1,13 +1,18 @@
+body {
+    overflow: hidden;
+}
+
 .fases {
     width: 500px;
     margin: auto;
     margin-bottom: 50px;
     border-radius: 50px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     color: #1e3932;
+    transition: all 0.4s ease;
 }
 
 .fase {
@@ -15,22 +20,26 @@
     text-align: center;
     font-size: 14px;
     position: relative;
+    color: inherit;
+    transition: all 0.3s ease;
 }
 
 .fase:hover {
-    cursor: pointer;
+    color: #cc0044;
+    cursor: not-allowed;
 }
 
 .fase.act {
     border-radius: 50px;
     background-color: #ffffff5f;
     padding: 10px;
+    cursor: pointer;
+    color: #360e06;
 }
 
 .fase span {
     display: block;
     border-radius: 50px;
-
 }
 
 .paso {
@@ -42,7 +51,7 @@
     padding: 2rem;
     gap: 2rem;
     text-align: center;
-    margin-top: auto;
+    display: none;
 }
 
 .paso h1 {
@@ -83,33 +92,23 @@
     margin-bottom: 20px;
 }
 
-.personas button {
+.personas button, .personas input {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: transparent;
+    background-color: #ffffff13;
     color: #1e3932;
     border: transparent;
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
-    font-family: 'Miranda Sans', sans-serif;
+    font-family: inherit;
 }
 
 /* estilos del botón de personas */
 .personas input {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: transparent;
-    background: transparent;
-    color: #1e3932;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s;
     appearance: textfield;
     text-align: center;
-    font-family: 'Miranda Sans', sans-serif;
 }
 
 /* estilos del texto del botón de personas */
@@ -138,7 +137,7 @@
 
 .personas button:hover,
 .personas input:hover {
-    background-color: #ffcba942;
+    background-color: #ffffff56;
     color: #6d1834;
     transform: scale(1.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -151,7 +150,7 @@
 }
 
 /* estilo del input fecha */
-* {
+.paso, .personas, .paso-fecha, .paso-hora, .paso-datos, .paso-confirmacion {
     box-sizing: border-box;
 }
 
@@ -218,10 +217,6 @@
     transition: right 0.3s ease;
 }
 
-.paso {
-    display: none;
-}
-
 /* estilo de input hora */
 .hora-box {
     position: relative;
@@ -261,15 +256,16 @@
 }
 
 /* estilo de input datos */
-.contacto,
-form {
+.contacto {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-form .datos-box input,
-form .datos-box textarea {
+.datos-box input,
+.datos-box textarea {
+    flex-direction: column;
+    align-items: center;
     display: flex;
     border-collapse: collapse;
     border-radius: 30px;
@@ -283,8 +279,8 @@ form .datos-box textarea {
     transition: border-color 0.3s ease;
 }
 
-form .datos-box input::placeholder,
-form .datos-box textarea::placeholder {
+.datos-box input::placeholder,
+.datos-box textarea::placeholder {
     color: #1e3932;
     opacity: 50%;
     text-indent: 0px;
@@ -360,4 +356,12 @@ input::-webkit-inner-spin-button {
 
 input {
     appearance: textfield;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+    .fases {
+        opacity: 0;
+        visibility: hidden;
+    }
 }

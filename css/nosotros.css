@@ -2,7 +2,7 @@
 .nosotros {
     width: 100%;
     padding: 40px 0 80px;
-    color: #4b3b34;
+    color: #fff;
 }
 
 .nosotros-container {
@@ -17,7 +17,7 @@
     margin-bottom: 20px;
     font-family: inherit;
     letter-spacing: 2px;
-    color: #5a4a42;
+    color: #f5eee2;
 }
 
 .nosotros-texto {
@@ -54,7 +54,7 @@
     font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 40px;
     font-family: serif;
-    color: #5a4a42;
+    color: #fff;
 }
 
 .nosotros-cards {
@@ -80,7 +80,7 @@
 .nos-card h3 {
     margin-bottom: 15px;
     font-size: 18px;
-    color: #1e3932;
+    color: #ffe8c9;
 }
 
 .nos-card p {

@@ -6,43 +6,50 @@ let email="";
 let fecha="";
 let hora="";
 
-const pasos=[
-    "paso-personas",
-    "paso-fecha",
-    "paso-hora",
-    "paso-datos",
-    "paso-confirmacion"
-];
+let inputPersonas;
+let inputFecha;
+let inputHora;
+let inputNombre;
+let inputEmail;
+
+const pasos=["paso-personas", "paso-fecha", "paso-hora", "paso-datos", "paso-confirmacion"]
+
+document.addEventListener("DOMContentLoaded", () => {
+    inputPersonas = document.querySelector(".personas input")
+    inputFecha = document.getElementById("fecha")
+    inputHora = document.getElementById("hora")
+    inputNombre = document.getElementById("nombre")
+    inputEmail = document.getElementById("email")
+
+    showPaso(0);
+});
 
 function showPaso(index) {
-    pasos.forEach((id, i)=>{
-        const seccion=document.getElementById(id);
-        if (!seccion) return;
-        seccion.classList.remove("activo");
-        if (i===index) {
-            seccion.classList.add("activo");
-        }
-    });
-    updateFases(index);
+    pasoActual = index
+    adminMsg("Muestra paso " + index)
+    pasos.forEach((id, i) => {
+        const seccion = document.getElementById(id)
+        if (!seccion) return
+
+        seccion.classList.toggle("activo", i === index)
+    })
+    updateFases(index)
 }
 
 function updateFases(index) {
-    const fases=document.querySelectorAll(".fase");
-    fases.forEach((fase, i) => {
-        fase.classList.remove("act");
-        if (i===index) {
-            fase.classList.add("act");
-        }
-    });
+    document.querySelectorAll(".fase").forEach((fase, i) => {
+        fase.classList.toggle("act", i === index)
+    })
 }
 
 function nextPaso() {
     if (pasoActual<pasos.length-1) {
-        pasoActual++;
+        pasoActual++
         if (pasoActual===4) {
-            fillResumen();
+            fillResumen()
         }
-        showPaso(pasoActual);
+        adminMsg("Siguiente paso ("+pasoActual+")")
+        showPaso(pasoActual)
     }
 }
 
@@ -50,118 +57,122 @@ function nextPaso() {
 function validateDato(pasoActual) {
     switch (pasoActual) {
         case 0:
-            if (!personas||personas.trim()==="") {
+            if (!personas||personas.toString().trim()==="") {
                 alert("Selecciona o ingresa personas")
+                adminErr("Falló validación en paso "+pasoActual)
+                return false
+            }
+            if (Number(personas)>10) {
+                alert("El número máximo de personas por reservación es 10")
+                adminErr("Falló validación en paso "+pasoActual)
                 return false
             }
             break
         case 1:
-            if (!fecha) {
+            if (!inputFecha.value) {
                 alert("Selecciona una fecha")
                 return false
             }
+            fecha=inputFecha.value
             break
         case 2:
-            if (!hora) {
+            if (!inputHora.value) {
                 alert("Selecciona una hora")
                 return false
             }
+            hora=inputHora.value
             break
         case 3:
-            if (!nombre||nombre.trim()==="") {
+            if (!inputNombre.value.trim()) {
                 alert("Ingresa nombre")
                 return false
             }
-            if (!emai||email.trim()==="") {
+            if (!inputEmail.value.trim()) {
                 alert("Ingresa email")
                 return false
             }
+            nombre=inputNombre.value
+            email=inputEmail.value
             break
-    }
+        }
     return true
 }
 
 // botón continuar
-document.querySelectorAll(".continuar").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const nombreValor=document.getElementById("nombre").value
-        const emailValor=document.getElementById("email").value
-        const fechaValor=document.getElementById("fecha").value
-        const horaValor=document.getElementById("hora").value
-        if (validateDato(pasoActual)) {
-            nombre=nombreValor
-            email=emailValor
-            fecha=fechaValor
-            hora=horaValor
-        } else {
-            return;
+function handleContinuar() {
+    console.log("Click continuar");
+    if (!validateDato(pasoActual)) return
+    adminMsg("Paso "+pasoActual+" validado correctamente")
+    nextPaso()
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key==="Enter") {
+        const tag=e.target.tagName.toLowerCase()
+        if (tag==="input"||tag==="select") {
+            e.preventDefault()
         }
-        if (!personas && inputPersonas.value.trim() !== "") {
-            personas=inputPersonas.value
-        }
-        nextPaso()
-    });
-});
+    }
+})
 
 // guardar pasos
 document.querySelectorAll(".personas button").forEach(btn => {
     btn.addEventListener("click", () => {
+        adminMsg("Click en botón .continuar2")
         document.querySelectorAll(".personas button").forEach(b => {
-            b.classList.remove("active");
-        });
-        const inputPersonas=document.querySelector(".personas input");
-        inputPersonas.classList.remove("active");
-        inputPersonas.value="";
-        btn.classList.add("active");
-        personas=btn.textContent;
-    });
-});
+            b.classList.remove("active")
+        })
+        const inputPersonas=document.querySelector(".personas input")
+        inputPersonas.classList.remove("active")
+        inputPersonas.value=""
+        btn.classList.add("active")
+        personas=btn.textContent
+    })
+})
 
-// input manual
-const inputPersonas=document.querySelector(".personas input");
-inputPersonas.addEventListener("input", (e) => {
-    document.querySelectorAll(".personas button").forEach(b => {
-        b.classList.remove("active");
-    });
-    if (e.target.value.trim() !== "") {
-        inputPersonas.classList.add("active");
-        personas=e.target.value;
-    } else {
-        inputPersonas.classList.remove("active");
-        personas=null;
-    }
-});
-
-// fecha
-document.getElementById("fecha").addEventListener("change", (e) => {fecha=e.target.value});
-
-// hora
-document.getElementById("hora").addEventListener("change", (e) => {hora=e.target.value});
+// input personas
+if (inputPersonas) {
+    inputPersonas.addEventListener("input", (e) => {
+        document.querySelectorAll(".personas button").forEach(b => {
+            b.classList.remove("active")
+        })
+        const val=e.target.value.trim()
+        if (val) {
+            inputPersonas.classList.add("active")
+            personas=val
+        } else {
+            inputPersonas.classList.remove("active")
+            personas=null
+        }
+    })
+}
 
 // datos usuario
-document.getElementById("nombre").addEventListener("change", (e) => {nombre=e.target.value});
-
-document.getElementById("email").addEventListener("change", (e) => {email=e.target.value});
+document.getElementById("fecha").addEventListener("input", (e) => {fecha=e.target.value})
+document.getElementById("hora").addEventListener("input", (e) => {hora=e.target.value})
+document.getElementById("nombre").addEventListener("input", (e) => {nombre=e.target.value})
+document.getElementById("email").addEventListener("input", (e) => {email=e.target.value})
 
 // llenar resumen
 function fillResumen() {
-    document.getElementById("res-nombre").textContent=nombre;
-    document.getElementById("res-email").textContent=email;
-    document.getElementById("res-fecha").textContent=fecha;
-    document.getElementById("res-hora").textContent=hora;
-    document.getElementById("res-personas").textContent=personas;
+    document.getElementById("res-nombre").textContent=nombre
+    document.getElementById("res-email").textContent=email
+    document.getElementById("res-fecha").textContent=fecha
+    document.getElementById("res-hora").textContent=hora
+    document.getElementById("res-personas").textContent=personas
+    adminMsg("Resumen llenado correctamente")
+    adminMsg(nombre+" "+email+" "+fecha+" "+hora)
 }
-
-// main
-document.addEventListener("DOMContentLoaded", () => {
-    showPaso(0);
-});
 
 // onclick
 function confirmReserva() {
-    alert("Pronto podrás agendar reservas.")
+    alert("Reserva confirmada correctamente.")
+    window.location.href="index.html"
+    adminMsg("Reserva agendada")
 }
 
 function editReserva() {
-    alert("Pronto podrás editar las reservas.")
+    pasoActual=0;
+    showPaso(pasoActual);
+    adminMsg("Reincio de proceso de reserva")
 }
