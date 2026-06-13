@@ -1,0 +1,146 @@
+body {
+    background-image: url("../img/avif/login.avif");
+    background-color: #6d1834;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.block-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    gap: 20px;
+}
+
+.block-login input {
+    display: flex;
+    border-collapse: collapse;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 10px;
+    width: 450px;
+    height: auto;
+    color: inherit;
+    resize: vertical;
+    overflow: hidden;
+    font-family: 'Miranda Sans', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.block-login input::placeholder {
+    color: inherit;
+    opacity: 50%;
+    text-indent: 0px;
+    font-family: inherit;
+}
+
+.block-login input:focus {
+    border-collapse: collapse;
+    outline: none;
+    border-color: #fff;
+    overflow: hidden;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.block-login button {
+    font-family: inherit;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    border-radius: 20px;
+    display: block;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-color: #fff;
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.5s ease, background-color 0.4s ease, padding 0.3s ease;
+}
+
+.block-login button:hover {
+    color: #1e3932;
+    background-color: #fff;
+    transform: scale(1.05);
+    padding: 10px 25px;
+}
+
+.error {
+    display: none;
+}
+
+.error.act {
+    display: flex;
+    color: rgb(255, 136, 136);
+    cursor: not-allowed;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+/* ventana de carga */
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    inset: 0;
+    z-index: 9999;
+    background-color: #6d18344d;
+    transition: all 0.3s ease;
+}
+
+.loading.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.loading h1 {
+    color: inherit;
+    font-family: inherit;
+    height: 30px;
+}
+
+.loading svg {
+    margin-top: 20px;
+    width: 30px;
+    height: 30px;
+    color: inherit;
+    animation: loading 3s infinite linear;
+}
+
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

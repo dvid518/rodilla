@@ -1,0 +1,58 @@
+body {
+    background-image: url("../img/avif/panel.avif");
+    background-color: #6d1834;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* arreglos de navbar */
+.logout-btn {
+    padding: 8px 18px;
+    background-color: transparent;
+    border: #6d1834 solid 1px;
+    color: #6d1834;
+    display: inline-flex;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 15px;
+    justify-self: end;
+    opacity: 1;
+    visibility: visible;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: #fff;
+    background-color: #6d1834;
+    padding: 8px 20px;
+    transform: scale(1.05);
+}
+
+.panel .item:hover {
+    color: #6d1834;
+}
+
+/* bienvenida inicial */
+.bienvenida {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    transform: translateY(-60px);
+    text-align: center;
+    color: transparent;
+    gap: 20px;
+}
+
+.bienvenida h1, .bienvenida h2 {
+    color: #6d1834;
+    transform: scale(2);
+}
+
+.bienvenida h2 {
+    font-size: 15px;
+}

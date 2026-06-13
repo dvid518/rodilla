@@ -31,6 +31,7 @@ body {
 
 .fase.act {
     border-radius: 50px;
+    transform: scale(1.05);
     background-color: #ffffff5f;
     padding: 10px;
     cursor: pointer;
@@ -49,7 +50,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    gap: 2rem;
+    gap: 3px;
     text-align: center;
     display: none;
 }
@@ -62,6 +63,7 @@ body {
 
 .paso.activo {
     display: flex;
+    transform: scale(1.05);
 }
 
 .continuar {
@@ -72,6 +74,7 @@ body {
     background-color: transparent;
     color: #1e3932;
     font-family: inherit;
+    cursor: pointer;
     transition:
         padding 0.3s ease,
         color 0.4s ease,
@@ -79,8 +82,8 @@ body {
 }
 
 .continuar:hover {
-    cursor: pointer;
-    padding: 10px 22px;
+    padding: 10px 22px;    
+    transform: scale(1.05);
     color: #fff;
     background-color: #1e3932;
 }
@@ -140,7 +143,8 @@ body {
     background-color: #ffffff56;
     color: #6d1834;
     transform: scale(1.1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin: 0px 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.064);
 }
 
 .personas button.active,
@@ -235,16 +239,13 @@ body {
     color: #1e3932;
     font-family: inherit;
     background-color: transparent;
-    transition:
-        border 0.3s ease,
-        background-color 0.3s ease,
-        color 0.4s ease,
-        box-shadow 0.6s ease;
     outline: none;
     box-shadow: none;
     appearance: none;
+    cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
+    transition: all 0.3 ease;
 }
 
 #hora:hover {
@@ -252,7 +253,6 @@ body {
     color: #fff;
     background-color: #1e3932;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    cursor: pointer;
 }
 
 /* estilo de input datos */
@@ -262,8 +262,7 @@ body {
     align-items: center;
 }
 
-.datos-box input,
-.datos-box textarea {
+.datos-box input {
     flex-direction: column;
     align-items: center;
     display: flex;
@@ -276,19 +275,17 @@ body {
     resize: vertical;
     overflow: hidden;
     font-family: 'Miranda Sans', sans-serif;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.datos-box input::placeholder,
-.datos-box textarea::placeholder {
+.datos-box input::placeholder {
     color: #1e3932;
     opacity: 50%;
     text-indent: 0px;
     font-family: 'Miranda Sans', sans-serif;
 }
 
-form .datos-box input:focus,
-form .datos-box textarea:focus {
+.datos-box input:focus {
     border-collapse: collapse;
     outline: none;
     border-color: #1e3932;
@@ -299,8 +296,8 @@ form .datos-box textarea:focus {
 .tabla-resumen {
     width: 100%;
     max-width: 500px;
-    margin: 20px auto;
-    padding: 30px;
+    margin: 10px auto;
+    padding: 20px 30px;
     border-radius: 30px;
     border: #1e3932 solid 1px;
 }
@@ -309,7 +306,7 @@ form .datos-box textarea:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 10px 0;
     border-bottom: 1px solid rgba(30, 57, 50, 0.1);
 }
 

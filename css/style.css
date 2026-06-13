@@ -38,6 +38,7 @@ a {
 }
 
 /* temas por página */
+
 .light, .dark {
     background-position: center;
     background-repeat: no-repeat;
@@ -45,10 +46,13 @@ a {
 }
 
 .light {
+    color: #1e3932;
     background-color: #ffe8c9;
 }
 
 .dark {
+    color: #fff;
+    background-color: #360e06;
 }
 
 .miranda-sans {
@@ -59,18 +63,20 @@ a {
 }
 
 /* barra de navegación */
+.block-menu {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+}
+
 .navbar {
     width: 80%;
-    max-height: 37px;
     margin: 30px auto;
     padding: 15px 30px;
     border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
-    top: 40px;
-    z-index: 1000;
 }
 
 .nav-logo {
@@ -122,6 +128,7 @@ a.into {
 
 .btn a:hover {
     padding: 8px 20px;
+    transform: scale(1.05);
 }
 
 .dark .btn a {
@@ -239,6 +246,14 @@ a.into {
     visibility: visible;
 }
 
+.dark .menu-fullscreen {
+    background-color: #360e0650;
+}
+
+.light .menu-fullscreen {
+    background-color: #ffe8c95e;
+}
+
 .menu-list {
     display: flex;
     flex-direction: column;
@@ -317,10 +332,17 @@ a {
     border-radius: 50px;
     transition: all 0.4s ease;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.copy a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .copy:hover {
     padding: 10px 20px;
+    transform: scale(1.05);
 }
 
 .dark .copy {
@@ -352,6 +374,7 @@ a {
 
 .footer-btn:hover {
     padding: 8px 15px;
+    transform: scale(1.05);
 }
 
 .dark .footer-btn {
@@ -385,7 +408,7 @@ svg {
 }
 
 .light .nota {
-    color: #1e3932;
+    color: #383838;
 }
 
 .dark .nota {

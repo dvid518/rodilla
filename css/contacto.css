@@ -19,13 +19,15 @@
     align-items: center;
 }
 
-form .formulario input, form .formulario textarea {
+form .formulario input,
+form .formulario textarea {
     display: flex;
     border-collapse: collapse;
     border-radius: 30px;
     padding: 20px;
     margin: 10px;
     width: 450px;
+    height: auto;
     color: #fff;
     resize: vertical;
     overflow: hidden;
@@ -88,7 +90,7 @@ form .formulario textarea:focus {
 }
 
 .submit button {
-    font-family: 'Miranda Sans', sans-serif;
+    font-family: inherit;
     margin-top: 30px;
     margin-bottom: 45px;
     border-radius: 20px;

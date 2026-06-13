@@ -20,9 +20,36 @@ document.addEventListener("DOMContentLoaded", () => {
     inputHora = document.getElementById("hora")
     inputNombre = document.getElementById("nombre")
     inputEmail = document.getElementById("email")
-
-    showPaso(0);
-});
+    document.querySelectorAll(".personas button").forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.querySelectorAll(".personas button").forEach(b => {
+                b.classList.remove("active")
+            })
+            inputPersonas.classList.remove("active")
+            inputPersonas.value=""
+            btn.classList.add("active")
+            personas = btn.textContent
+        })
+    })
+    inputPersonas.addEventListener("input", (e) => {
+        document.querySelectorAll(".personas button").forEach(b => {
+            b.classList.remove("active")
+        })
+        const val=e.target.value.trim()
+        if (val) {
+            inputPersonas.classList.add("active")
+            personas = val
+        } else {
+            inputPersonas.classList.remove("active")
+            personas = null
+        }
+    })
+    inputFecha.addEventListener("input", (e) => {fecha = e.target.value})
+    inputHora.addEventListener("input", (e) => {hora = e.target.value})
+    inputNombre.addEventListener("input", (e) => {nombre = e.target.value})
+    inputEmail.addEventListener("input", (e) => {email = e.target.value})
+    showPaso(0)
+})
 
 function showPaso(index) {
     pasoActual = index
@@ -30,7 +57,6 @@ function showPaso(index) {
     pasos.forEach((id, i) => {
         const seccion = document.getElementById(id)
         if (!seccion) return
-
         seccion.classList.toggle("activo", i === index)
     })
     updateFases(index)
@@ -38,7 +64,7 @@ function showPaso(index) {
 
 function updateFases(index) {
     document.querySelectorAll(".fase").forEach((fase, i) => {
-        fase.classList.toggle("act", i === index)
+        fase.classList.toggle("act", i===index)
     })
 }
 
@@ -114,44 +140,6 @@ document.addEventListener("keydown", (e) => {
         }
     }
 })
-
-// guardar pasos
-document.querySelectorAll(".personas button").forEach(btn => {
-    btn.addEventListener("click", () => {
-        adminMsg("Click en botón .continuar2")
-        document.querySelectorAll(".personas button").forEach(b => {
-            b.classList.remove("active")
-        })
-        const inputPersonas=document.querySelector(".personas input")
-        inputPersonas.classList.remove("active")
-        inputPersonas.value=""
-        btn.classList.add("active")
-        personas=btn.textContent
-    })
-})
-
-// input personas
-if (inputPersonas) {
-    inputPersonas.addEventListener("input", (e) => {
-        document.querySelectorAll(".personas button").forEach(b => {
-            b.classList.remove("active")
-        })
-        const val=e.target.value.trim()
-        if (val) {
-            inputPersonas.classList.add("active")
-            personas=val
-        } else {
-            inputPersonas.classList.remove("active")
-            personas=null
-        }
-    })
-}
-
-// datos usuario
-document.getElementById("fecha").addEventListener("input", (e) => {fecha=e.target.value})
-document.getElementById("hora").addEventListener("input", (e) => {hora=e.target.value})
-document.getElementById("nombre").addEventListener("input", (e) => {nombre=e.target.value})
-document.getElementById("email").addEventListener("input", (e) => {email=e.target.value})
 
 // llenar resumen
 function fillResumen() {
