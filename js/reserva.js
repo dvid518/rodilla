@@ -125,6 +125,14 @@ function validateDato(pasoActual) {
 }
 
 // botón continuar
+const continuar=document.querySelector(".continuar")
+
+document.addEventListener("click", (e) => {
+    if (e.target.closest(".continuar")) {
+        handleContinuar()
+    }
+})
+
 function handleContinuar() {
     console.log("Click continuar");
     if (!validateDato(pasoActual)) return

@@ -20,7 +20,7 @@ async function login() {
     const isUser=inputUser===user
     const isPass=inputPass===pass
 
-    if (isUser||isPass) {
+    if (isUser&&isPass) {
         loading.classList.add("active")
         await esperar(3000)
         window.location.href="panel.html"

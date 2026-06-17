@@ -115,6 +115,7 @@ body {
     z-index: 9999;
     background-color: #6d18344d;
     transition: all 0.3s ease;
+    cursor: wait;
 }
 
 .loading.active {

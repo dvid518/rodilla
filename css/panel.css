@@ -35,24 +35,205 @@ body {
     color: #6d1834;
 }
 
-/* bienvenida inicial */
-.bienvenida {
+/* sección carta */
+.carta {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 25px;
+}
+
+.tabla-container {
     margin: auto;
-    transform: translateY(-60px);
+    width: 75%;
+    border-radius: 30px;
+}
+
+/* nav */
+.nav_block {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+.categorias {
+    display: flex;
     text-align: center;
-    color: transparent;
-    gap: 20px;
+    border-radius: 50px;
+    gap: 6px;
+    overflow: hidden;
 }
 
-.bienvenida h1, .bienvenida h2 {
+.categorias button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: transparent;
+    background-color: transparent;
+    font-family: inherit;
+    color: inherit;
+    font-size: 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.categorias button:hover {
+    transform: scale(1.1);
+    background-color: #ffffff28;
+}
+
+.categorias button.tab {
+    padding: 8px 20px;
+}
+
+.categorias button:not(.add):hover {
+    padding: 8px 25px;
+}
+
+.categorias button.add {
+    padding: 8px 9px 8px 7px;
+}
+
+.categorias button.add:hover {
+    padding: 8px 12px 8px 10px;
+}
+
+.categorias button svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: auto;
+    color: #1e3932;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.categorias button.act {
+    background-color: #ffffff31;
+}
+
+/* tablas */
+.tabla-block {
+    display: none;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 30px 40px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.062);
+}
+
+.tabla-block.act {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
+.bebidas {
+    border-left: 6px solid #a82b13;
+}
+
+.postres {
+    border-left: 6px solid #720c61;
+}
+
+.aperitivos {
+    border-left: 6px solid #234564;
+}
+
+.tabla-block table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabla-block thead {
+    background: rgba(255, 255, 255, 0.178);
+}
+
+.tabla-block th, .tabla-block td {
+    padding: 8px 10px;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.tabla-block th:not(.del):hover {
     color: #6d1834;
-    transform: scale(2);
 }
 
-.bienvenida h2 {
-    font-size: 15px;
+.tabla-block tr, .tabla-block th, .tabla-block td, td.icon svg {
+    transition: all 0.3s ease;
 }
+
+.tabla-block tr:hover {
+    background: rgba(255, 255, 255, 0.103);
+}
+
+.tabla-block td:not(.icon.trash):hover, .tabla-block th:hover {
+    background: rgba(255, 255, 255, 0.103);
+}
+
+th.del {
+    color: #a82450;
+}
+
+.tabla-block img {
+    width: 30px;
+}
+
+td.icon {
+    padding: 2px 6px;
+    width: 40px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.icon svg {
+    display: block;
+    margin: auto;
+    color: #1e3932;
+}
+
+td.icon button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    padding: 10px 8px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+td.icon.pencil:hover svg {
+    color: #6d1834;
+}
+
+td.icon.trash:hover {
+    background: rgba(216, 27, 68, 0.171);
+}
+
+td.icon.trash:hover svg {
+    color: #d81b44;
+}
+
+svg.pencil {
+    width: 27px;
+    height: 27px;
+}
+
+svg.trash {
+    width: 20px;
+    height: 20px;
+}
+
+/* sección reservas */
+/* sección mensajes */
+/* sección usuarios */
