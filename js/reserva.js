@@ -125,12 +125,10 @@ function validateDato(pasoActual) {
 }
 
 // botón continuar
-const continuar=document.querySelector(".continuar")
+const continuar=document.getElementsByName("continuar");
 
-document.addEventListener("click", (e) => {
-    if (e.target.closest(".continuar")) {
-        handleContinuar()
-    }
+continuar.forEach((btn) => {
+    btn.addEventListener("click", () => {handleContinuar()})
 })
 
 function handleContinuar() {

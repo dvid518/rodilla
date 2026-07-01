@@ -4,7 +4,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
 }
 
 /* arreglos de navbar */
@@ -36,7 +35,11 @@ body {
 }
 
 /* sección carta */
-.carta {
+.carta-section {
+    display: none;
+}
+
+.carta-section.act {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +86,6 @@ body {
 }
 
 .categorias button:hover {
-    transform: scale(1.1);
     background-color: #ffffff28;
 }
 
@@ -100,7 +102,7 @@ body {
 }
 
 .categorias button.add:hover {
-    padding: 8px 12px 8px 10px;
+    padding: 8px 15px 8px 13px;
 }
 
 .categorias button svg {
@@ -114,7 +116,19 @@ body {
 }
 
 .categorias button.act {
-    background-color: #ffffff31;
+    color: #fff;
+}
+
+.categorias button.act#tab-bebidas {
+    background-color: #a82b13;
+}
+
+.categorias button.act#tab-postres {
+    background-color: #720c61;
+}
+
+.categorias button.act#tab-aperitivos {
+    background-color: #234564;
 }
 
 /* tablas */
@@ -234,6 +248,163 @@ svg.trash {
     height: 20px;
 }
 
+/* agregar productos */
+.form-add-producto {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    position: fixed;
+    gap: 20px;
+    inset: 0;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+    background-color: #d499a457;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.form-add-producto.act {
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-add-producto .left {
+    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.left .title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.left input, .left select {
+    width: 90%;
+    display: flex;
+    outline: none;
+    border: #6d183400;
+    border-radius: 30px;
+    padding: 20px;
+    width: 450px;
+    height: auto;
+    color: #6d1834;
+    background-color: #ffffff2d;
+    box-sizing: border-box;
+    font-family: 'Miranda Sans', sans-serif;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: textfield;
+    transition: all 0.3s ease;
+}
+
+.left input::placeholder {
+    color: #6d183493;
+}
+
+.left select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.left input:focus, .left select:focus {
+    border: #6d1834 1px solid;
+}
+
+.left .button-container {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.left button {
+    background-color: #ffffff2d;
+    font-family: inherit;
+    border-radius: 30px;
+    border: #6d1834 1px solid;
+    padding: 10px 20px;
+    color: #6d1834;
+    transition: all 0.3s ease;
+}
+
+.left button:hover {
+    background-color: #6d1834;
+    color: #fff;
+    border: #6d1834;
+    padding: 10px 25px;
+    transform: scale(1.05);
+}
+
+.left button.hide-btn {
+    display: none;
+}
+
+.right img {
+    border-radius: 20px;
+    max-height: 350px;
+    animation: bg-rotate 20s infinite;
+}
+
+@keyframes bg-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
 /* sección reservas */
+.reservas-section {
+    display: none;
+}
+
+.reservas-section.act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
 /* sección mensajes */
+.mensajes-section {
+    display: none;
+}
+
+.mensajes-section.act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
 /* sección usuarios */
+.usuarios-section {
+    display: none;
+}
+
+.usuarios-section.act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 20px;
+}

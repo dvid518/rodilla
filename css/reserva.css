@@ -331,10 +331,7 @@ body {
     background-color: transparent;
     color: #1e3932;
     font-family: inherit;
-    transition:
-        padding 0.3s ease,
-        color 0.4s ease,
-        background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .conf-edit:hover {
@@ -342,6 +339,7 @@ body {
     padding: 10px 22px;
     color: #fff;
     background-color: #1e3932;
+    transform: scale(1.05);
 }
 
 /* eliminar botones laterales de input */

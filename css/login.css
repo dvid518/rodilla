@@ -83,6 +83,10 @@ body {
     animation: shake 0.5s;
 }
 
+.error.act:hover {
+    animation: shake 0.5s;
+}
+
 @keyframes shake {
     0% {
         transform: translateX(0px);

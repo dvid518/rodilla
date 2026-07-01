@@ -130,7 +130,7 @@
     transition: all 0.5s ease;
 }
 
-.card-producto img:hover {
+.card-producto:hover img {
     animation: bg-gradient 120s infinite;
 }
 
@@ -143,19 +143,19 @@
     }
 }
 
-.card-producto.cp1 img {
+.card-producto.bebidas img {
     background: #a82b13;
     padding: 20px;
     border-radius: 50%;
 }
 
-.card-producto.cp2 img {
+.card-producto.postres img {
     background: #720c61;
     padding: 20px;
     border-radius: 50%;
 }
 
-.card-producto.cp3 img {
+.card-producto.aperitivos img {
     background: #234564;
     padding: 20px;
     border-radius: 50%;
@@ -180,17 +180,17 @@
     cursor: pointer;
 }
 
-.precio.cp1 {
+.bebidas .precio {
     color: #721e0e;
     background: #721f0e28;
 }
 
-.precio.cp2 {
+.postres .precio {
     color: #720c61;
     background: #720c6128;
 }
 
-.precio.cp3 {
+.aperitivos .precio {
     color: #234564;
     background: #23456428;
 }

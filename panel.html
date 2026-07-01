@@ -20,20 +20,20 @@
             </button>
             <a href="index.html" class="nav-logo item">Rodilla</a>
             <div class="menu-list">
-                <a class="item a" id="index-i" href="#">Productos</a>
-                <a class="item a" id="menu-i" href="#">Reservas</a>
-                <a class="item a" id="nosotros-i" href="#">Mensajes</a>
-                <a class="item a" id="contacto-i" href="#">Usuarios</a>
+                <a class="item a" name="carta">Carta</a>
+                <a class="item a" name="reservas">Reservas</a>
+                <a class="item a" name="mensajes">Mensajes</a>
+                <a class="item a" name="usuarios">Usuarios</a>
                 <button class="logout-btn">Cerrar Sesión</button>
             </div>
         </section>
         <header class="navbar glass">
                 <a href="index.html" class="nav-logo item">Rodilla</a>
                 <nav class="nav-menu">
-                        <a class="item" href="#">Carta</a>
-                        <a class="item" href="#">Reservas</a>
-                        <a class="item" href="#">Mensajes</a>
-                        <a class="item" href="#">Usuarios</a>
+                        <a class="item" name="carta">Carta</a>
+                        <a class="item" name="reservas">Reservas</a>
+                        <a class="item" name="mensajes">Mensajes</a>
+                        <a class="item" name="usuarios">Usuarios</a>
                 </nav>
                 <button class="logout-btn">Cerrar Sesión</button>
                 <button class="menu-toggle item" id="menu-toggle" onclick="showMenu()">
@@ -45,7 +45,7 @@
                 </button>
         </header>
     </div>
-    <section class="carta">
+    <section class="carta-section act" id="carta-section">
         <div class="nav_block">
             <nav class="categorias glass">
                 <button class="tab act" id="tab-bebidas">Bebidas</button>
@@ -53,7 +53,7 @@
                 <button class="tab" id="tab-aperitivos">Aperitivos</button>
             </nav>
             <nav class="categorias glass">
-                <button class="add">
+                <button class="add" id="nuevo">
                     <svg width=viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 12H18M12 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -107,12 +107,35 @@
                 </table>
             </div>
         </div>
+        <div class="form-add-producto" id="form-add-producto">
+            <div class="left">
+                <div class="title" id="title"></div>
+                <input type="text" id="nombre" placeholder="Nombre" autocomplete="off">
+                <input type="number" step="0.01" id="precio" placeholder="Precio">
+                <input type="text" id="img" placeholder="Link de la imagen">
+                <select id="categoria">
+                    <option value="" disabled selected>Categoría</option>
+                    <option value="bebidas">Bebidas</option>
+                    <option value="postres">Postres</option>
+                    <option value="aperitivos">Aperitivos</option>
+                </select>
+                <div class="button-container">
+                    <button id="push"></button>
+                    <button id="del" class="hide-btn">Eliminar</button>
+                    <button id="exit">Salir</button>
+                </div>
+            </div>
+            <div class="right">
+                <div class="img-box" id="img-box">
+                </div>
+            </div>
+        </div>
     </section>
-    <section class="reservas">
+    <section class="reservas" id="reservas-section">
     </section>
-    <section class="mensajes">
+    <section class="mensajes" id="mensajes-section">
     </section>
-    <section class="usuarios">
+    <section class="usuarios" id="usuarios-section">
     </section>
     <script src="js/script.js"></script>
     <script type="module" src="js/panel.js"></script>

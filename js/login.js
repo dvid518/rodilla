@@ -14,18 +14,26 @@ async function login() {
     const inputUser=document.getElementById("user").value
     const inputPass=document.getElementById("pass").value
 
-    const msg=document.getElementById("msg")
+    const error=document.getElementById("msg")
     const loading=document.getElementById("loading")
 
     const isUser=inputUser===user
     const isPass=inputPass===pass
 
     if (isUser&&isPass) {
+        error.classList.remove("act")
         loading.classList.add("active")
         await esperar(3000)
         window.location.href="panel.html"
     } else {
-        msg.classList.add("act")
+        error.classList.add("act")
+        if (isUser) {
+            error.textContent="*Contraseña incorrecta"
+        } else if (isPass) {
+            error.textContent="*Usuario incorrecto"
+        } else {
+            error.textContent="*Datos incorrectos"
+        }
     }
 }
 
