@@ -194,3 +194,36 @@
     color: #234564;
     background: #23456428;
 }
+
+.btn-agregar {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50px;
+    margin-top: 15px;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.btn-agregar:hover {
+    padding: 10px 18px;
+    transform: scale(1.05);
+}
+
+#bebidas .btn-agregar {
+    background-color: #a82b13;
+}
+
+#postres .btn-agregar {
+    background-color: #720c61;
+}
+
+#aperitivos .btn-agregar {
+    background-color: #234564;
+}
+
+.btn-agregar:disabled {
+    background: #25a55f;
+    cursor: default;
+}

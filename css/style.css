@@ -109,6 +109,11 @@ a {
     padding: 0px 5px;
 }
 
+.right {
+    display: flex;
+    flex-direction: row;
+}
+
 a.into {
     color: #ffe8c9;
 }
