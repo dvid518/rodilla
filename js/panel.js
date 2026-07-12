@@ -123,8 +123,9 @@ addBtn.addEventListener("click", () => addProductoPanel())
 inputImg.addEventListener("input", e => showImg(e.target.value))
 pushBtn.addEventListener("click", saveProducto)
 delBtn.addEventListener("click", () => {
-    if (editando)
-        deleteProducto(idEditando, coleccionEditando)
+    if (editando) {
+        deleteProducto(idEditando, coleccionEditando, false)
+    }
 })
 exitBtn.addEventListener("click", closePanel)
 document.addEventListener("keydown", e => {
@@ -218,28 +219,96 @@ function showImg(link) {
     imgBox.innerHTML=`<img src="${link}" alt="">`
 }
 
-async function deleteProducto(id, coleccion) {
-    const confirmar=confirm("¿Eliminar este producto?")
-    if (!confirmar)
-        return
-    try {
-        await deleteDoc(doc(db, coleccion, id))
-        closePanel()
-        iniciarPanel()
-    } catch (error) {
-        console.error(error)
+const deleteModal = document.getElementById('deleteModal');
+const modalConfirm = document.getElementById('modalConfirm');
+const modalCancel = document.getElementById('modalCancel');
+const modalClose = document.getElementById('modalClose');
+const productName = document.getElementById('productName');
+const productCategory = document.getElementById('productCategory');
+
+let pendingDelete = null;
+
+async function deleteProducto(id, coleccion, usarModal=true) {
+    if (usarModal) {
+        try {
+            const productRef = doc(db, coleccion, id);
+            const snapshot = await getDoc(productRef);
+            const producto = snapshot.data();
+            productName.textContent = producto.nombre || 'Producto sin nombre';
+            const categoryNames = {
+                'bebidas': 'Bebida',
+                'postres': 'Postre',
+                'aperitivos': 'Aperitivo'
+            };
+            productCategory.textContent = categoryNames[coleccion] || coleccion;
+            pendingDelete = { id, coleccion };
+            showModal();
+        } catch (error) {
+            console.error('Error al cargar producto:', error);
+            if (confirm('¿Eliminar este producto?')) {
+                await executeDelete(id, coleccion);
+            }
+        }
+    } else {
+        if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
+            await executeDelete(id, coleccion);
+        }
     }
 }
 
+function showModal() {
+    deleteModal.classList.remove('fade-out');
+    deleteModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    deleteModal.classList.add('fade-out');
+    setTimeout(() => {
+        deleteModal.classList.remove('active', 'fade-out');
+        document.body.style.overflow = '';
+        pendingDelete = null;
+    }, 300);
+}
+
+async function executeDelete(id, coleccion) {
+    try {
+        await deleteDoc(doc(db, coleccion, id));
+        closeModal();
+        iniciarPanel();
+    } catch (error) {
+        console.error('Error al eliminar:', error);
+        alert('Error al eliminar el producto. Por favor, intenta de nuevo.');
+    }
+}
+
+modalConfirm.addEventListener('click', () => {
+    if (pendingDelete) {
+        executeDelete(pendingDelete.id, pendingDelete.coleccion);
+    }
+});
+
+modalCancel.addEventListener('click', closeModal);
+modalClose.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && deleteModal.classList.contains('active')) {
+        closeModal();
+    }
+});
+
+deleteModal.addEventListener('click', (e) => {
+    if (e.target === deleteModal) {
+        closeModal();
+    }
+});
+
 function closePanel() {
     form.classList.remove("act")
-
     editando=false
     idEditando=null
     coleccionEditando=null
-
     delBtn.classList.add("hide-btn")
-
     document.getElementById("title").textContent=""
     pushBtn.textContent="Agregar"
     document.getElementById("nombre").value=""
@@ -251,7 +320,6 @@ function closePanel() {
 
 iniciarPanel()
 
-// interacción nav carta
 const tabBebidas=document.getElementById("tab-bebidas")
 const tabPostres=document.getElementById("tab-postres")
 const tabAperitivos=document.getElementById("tab-aperitivos")

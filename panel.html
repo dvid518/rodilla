@@ -137,6 +137,31 @@
     </section>
     <section class="usuarios" id="usuarios-section">
     </section>
+    <div class="modal-overlay glass" id="deleteModal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h2>Confirmar eliminación</h2>
+                <button class="modal-close" id="modalClose">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 8L8 16M8.00001 8L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar este producto?</p>
+                <div class="product-info" id="productInfo">
+                    <span id="productName"></span>
+                    <span id="productCategory"></span>
+                </div>
+                <p class="warning-text">Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" id="modalCancel">Cancelar</button>
+                <button class="delete-btn" id="modalConfirm">Eliminar</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="js/script.js"></script>
     <script type="module" src="js/panel.js"></script>
 </body>
