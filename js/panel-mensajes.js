@@ -1,0 +1,135 @@
+import { db } from "./firebase.js"
+import { collection, getDocs, doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js"
+
+
+function crearFila(mensaje) {
+    return `
+        <tr>
+            <td>${mensaje.id}</td>
+            <td>${mensaje.nombre}</td>
+            <td>${mensaje.email}</td>
+            <td class="mensaje-cell">
+                ${mensaje.mensaje}
+            </td>
+            <td class="icon trash">
+                <button class="btn-delete" data-id="${mensaje.id}">
+                    <svg class="trash" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L17.1991 18.0129C17.129 19.065 17.0939 19.5911 16.8667 19.99C16.6666 20.3412 16.3648 20.6235 16.0011 20.7998C15.588 21 15.0607 21 14.0062 21H9.99377C8.93927 21 8.41202 21 7.99889 20.7998C7.63517 20.6235 7.33339 20.3412 7.13332 19.99C6.90607 19.5911 6.871 19.065 6.80086 18.0129L6 6M4 6H20M16 6L15.7294 5.18807C15.4671 4.40125 15.3359 4.00784 15.0927 3.71698C14.8779 3.46013 14.6021 3.26132 14.2905 3.13878C13.9376 3 13.523 3 12.6936 3H11.3064C10.477 3 10.0624 3 9.70951 3.13878C9.39792 3.26132 9.12208 3.46013 8.90729 3.71698C8.66405 4.00784 8.53292 4.40125 8.27064 5.18807L8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+    `
+}
+
+function renderTabla(lista) {
+    const tbody=document.getElementById("mensajes-tbody")
+
+    tbody.innerHTML=lista.map(mensaje => crearFila(mensaje)).join("")
+
+    tbody.querySelectorAll(".btn-delete").forEach(btn => {
+        btn.addEventListener("click",()=>{
+            deleteMensaje(btn.dataset.id)
+        })
+    })
+}
+
+async function loadMensajes() {
+    const snapshot=await getDocs(
+        collection(db,"mensajes")
+    )
+    return snapshot.docs.map(doc=>({id:doc.id, ...doc.data()}))
+}
+
+async function iniciarPanel() {
+    try {
+        const mensajes=await loadMensajes()
+        renderTabla(mensajes)
+    } catch(error) {
+        console.error(
+            "Error al cargar mensajes:",
+            error
+        )
+    }
+}
+
+// modal eliminar
+const deleteModal=document.getElementById("deleteModal")
+const modalConfirm=document.getElementById("modalConfirm")
+const modalCancel=document.getElementById("modalCancel")
+const modalClose=document.getElementById("modalClose")
+
+const mensajeNombre=document.getElementById("productName")
+const mensajeCorreo=document.getElementById("productCategory")
+
+let pendingDelete=null
+
+async function deleteMensaje(id) {
+    try {
+        const mensajeRef=doc(db,"mensajes",id)
+        const snapshot=await getDoc(mensajeRef)
+        const mensaje=snapshot.data()
+
+        mensajeNombre.textContent=mensaje.nombre || "Sin nombre"
+        mensajeCorreo.textContent=mensaje.email || "Sin correo"
+        pendingDelete=id
+        showModal()
+    } catch(error) {
+        console.error("Error al cargar mensaje:", error)
+    }
+}
+
+function showModal() {
+    deleteModal.classList.remove("fade-out")
+    deleteModal.classList.add("active")
+    document.body.style.overflow="hidden"
+}
+
+function closeModal() {
+    deleteModal.classList.add("fade-out")
+    setTimeout(()=>{
+        deleteModal.classList.remove(
+            "active",
+            "fade-out"
+        )
+        document.body.style.overflow=""
+        pendingDelete=null
+    }, 300)
+}
+
+async function executeDelete(id) {
+    try {
+        await deleteDoc(doc(db,"mensajes",id))
+        closeModal()
+        iniciarPanel()
+    } catch(error) {
+        console.error("Error al eliminar mensaje:", error)
+        alert("Error al eliminar el mensaje")
+    }
+}
+
+modalConfirm.addEventListener("click",()=>{
+    if(pendingDelete){
+        executeDelete(pendingDelete)
+    }
+})
+
+modalCancel.addEventListener("click",closeModal)
+modalClose.addEventListener("click",closeModal)
+
+document.addEventListener("keydown",e=>{
+    if(
+        e.key==="Escape" &&
+        deleteModal.classList.contains("active")
+    ){
+        closeModal()
+    }
+})
+
+deleteModal.addEventListener("click",e=>{
+    if(e.target===deleteModal){
+        closeModal()
+    }
+})
+
+iniciarPanel()

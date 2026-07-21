@@ -4,8 +4,8 @@
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Panel | Rodilla</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/panel.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/panel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Miranda+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -20,22 +20,28 @@
             </button>
             <a href="index.html" class="nav-logo item">Rodilla</a>
             <div class="menu-list">
-                <a class="item a" name="carta">Carta</a>
-                <a class="item a" name="reservas">Reservas</a>
-                <a class="item a" name="mensajes">Mensajes</a>
-                <a class="item a" name="usuarios">Usuarios</a>
-                <button class="logout-btn">Cerrar Sesión</button>
+                <a class="item" href="panel-carta.html" name="carta">Carta</a>
+                <a class="item" href="panel-reservas.html" name="reservas">Reservas</a>
+                <a class="item" href="panel-mensajes.html" name="mensajes">Mensajes</a>
+                <a href="../index.html">
+                    <button class="logout-btn">
+                        Cerrar Sesión
+                    </button>
+                </a>
             </div>
         </section>
         <header class="navbar glass">
                 <a href="index.html" class="nav-logo item">Rodilla</a>
                 <nav class="nav-menu">
-                        <a class="item" name="carta">Carta</a>
-                        <a class="item" name="reservas">Reservas</a>
-                        <a class="item" name="mensajes">Mensajes</a>
-                        <a class="item" name="usuarios">Usuarios</a>
+                        <a class="item" href="panel-carta.html" name="carta">Carta</a>
+                        <a class="item" href="panel-reservas.html" name="reservas">Reservas</a>
+                        <a class="item" href="panel-mensajes.html" name="mensajes">Mensajes</a>
                 </nav>
-                <button class="logout-btn">Cerrar Sesión</button>
+                <a href="../index.html">
+                    <button class="logout-btn">
+                        Cerrar Sesión
+                    </button>
+                </a>
                 <button class="menu-toggle item" id="menu-toggle" onclick="showMenu()">
                     <svg width="38px" height="38px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Menu / Menu_Alt_05">
@@ -45,65 +51,22 @@
                 </button>
         </header>
     </div>
-    <section class="carta-section act" id="carta-section">
-        <div class="nav_block">
-            <nav class="categorias glass">
-                <button class="tab act" id="tab-bebidas">Bebidas</button>
-                <button class="tab" id="tab-postres">Postres</button>
-                <button class="tab" id="tab-aperitivos">Aperitivos</button>
-            </nav>
-            <nav class="categorias glass">
-                <button class="add" id="nuevo">
-                    <svg width=viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 12H18M12 6V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </nav>
-        </div>
+    <section class="reservas" id="reservas-section">
         <div class="tabla-container glass">
-            <div class="tabla-block bebidas act" id="tabla-bebidas">
+            <div class="tabla-block tab-reservas act" id="tabla-reservas">
                 <table>
                     <thead>
                         <tr>
-                            <th>img</th>
-                            <th>id_bebida</th>
+                            <th>id_reserva</th>
                             <th>Nombre</th>
-                            <th>Precio (s/)</th>
-                            <th>(E)</th>
+                            <th>Email</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Asientos</th>
                             <th class="del">(D)</th>
                         </tr>
                     </thead>
-                    <tbody id="bebidas-tbody"></tbody>
-                </table>
-            </div>
-            <div class="tabla-block postres" id="tabla-postres">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>img</th>
-                            <th>id_postre</th>
-                            <th>Nombre</th>
-                            <th>Precio (s/)</th>
-                            <th>(E)</th>
-                            <th class="del">(D)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="postres-tbody"></tbody>
-                </table>
-            </div>
-            <div class="tabla-block aperitivos" id="tabla-aperitivos">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>img</th>
-                            <th>id_aperitivo</th>
-                            <th>Nombre</th>
-                            <th>Precio (s/)</th>
-                            <th>(E)</th>
-                            <th class="del">(D)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="aperitivos-tbody"></tbody>
+                    <tbody id="reservas-tbody"></tbody>
                 </table>
             </div>
         </div>
@@ -131,12 +94,6 @@
             </div>
         </div>
     </section>
-    <section class="reservas" id="reservas-section">
-    </section>
-    <section class="mensajes" id="mensajes-section">
-    </section>
-    <section class="usuarios" id="usuarios-section">
-    </section>
     <div class="modal-overlay glass" id="deleteModal">
         <div class="modal-content glass">
             <div class="modal-header">
@@ -163,6 +120,6 @@
     </div>
     
     <script src="js/script.js"></script>
-    <script type="module" src="js/panel.js"></script>
+    <script type="module" src="../js/panel-reservas.js"></script>
 </body>
 </html>

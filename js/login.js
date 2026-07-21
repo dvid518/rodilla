@@ -24,7 +24,7 @@ async function login() {
         error.classList.remove("act")
         loading.classList.add("active")
         await esperar(3000)
-        window.location.href="panel.html"
+        window.location.href="admin/panel-reservas.html"
     } else {
         error.classList.add("act")
         if (isUser) {

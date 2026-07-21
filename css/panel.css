@@ -35,7 +35,7 @@ body {
     color: #6d1834;
 }
 
-/* sección carta */
+/* panel carta */
 .carta-section {
     display: none;
 }
@@ -488,7 +488,7 @@ svg.trash {
 
 .product-info {
     border: 1px solid #6d1834;
-    border-radius: 10px;
+    border-radius: 50px;
     padding: 12px 15px;
     margin: 15px 0;
     display: flex;
@@ -503,11 +503,11 @@ svg.trash {
 }
 
 #productCategory {
-    background: rgba(0, 0, 0, 0.05);
+    background: #6d18343b;
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
-    color: #666;
+    color: #eecdcb;
 }
 
 .warning-text {
@@ -577,4 +577,32 @@ svg.trash {
         width: 100%;
         padding: 12px;
     }
+}
+
+/* panel reservas */
+.tab-reservas {
+    border-left: 6px solid #1e3932;
+}
+
+/* panel mensajes */
+.tab-mensajes {
+    border-left: 6px solid #6d1834;
+}
+
+.mensaje-cell {
+    width: 300px;
+    max-width: 300px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mensaje-cell span {
+    display: block;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    position: relative;
+    cursor: pointer;
 }

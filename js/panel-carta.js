@@ -99,7 +99,6 @@ async function iniciarPanel() {
             loadColeccion("postres"),
             loadColeccion("aperitivos")
         ])
-
         renderTabla(bebidas, "bebidas-tbody", "bebidas")
         renderTabla(postres, "postres-tbody", "postres")
         renderTabla(aperitivos, "aperitivos-tbody", "aperitivos")
