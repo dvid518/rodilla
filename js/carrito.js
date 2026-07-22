@@ -360,7 +360,6 @@ import {collection, addDoc, serverTimestamp} from "https://www.gstatic.com/fireb
             if (botonPedido) {
                 botonPedido.disabled = true
             }
-
             return
         }
 
@@ -446,7 +445,7 @@ import {collection, addDoc, serverTimestamp} from "https://www.gstatic.com/fireb
             carrito=[]
             guardarCarrito()
             cerrarCarrito()
-            window.location.href="index.html"
+            window.location.href="menu.html"
         } catch(error) {
             console.error("Error al guardar pedido:", error)
             alert("No se pudo registrar el pedido.")

@@ -1,5 +1,5 @@
-const user="user"
-const pass="181996"
+const user="admin"
+const pass="admin123"
 
 function esperar(ms){
     adminMsg("Esperar "+ms+" milisegundos")
