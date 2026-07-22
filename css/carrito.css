@@ -312,12 +312,12 @@
 
 .realizar-pedido {
     margin-bottom: 0;
-    background: #25d3653a;
-    color: #105027;
+    background: #360e063a;
+    color: #363636;
 }
 
 .realizar-pedido:hover {
-    background: #25d366;
+    background: #360e06;
     color: #fff;
 }
 

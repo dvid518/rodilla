@@ -606,3 +606,19 @@ svg.trash {
     position: relative;
     cursor: pointer;
 }
+
+/* panel pedidos */
+.tab-pedidos {
+    border-left: 6px solid #19525a;
+}
+
+.btn-view {
+    font-family: inherit;
+    color: #1e3932;
+    font-size: inherit;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:6px 14px;
+    white-space:nowrap;
+}

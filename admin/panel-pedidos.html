@@ -3,7 +3,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Mensajes | Rodilla</title>
+    <title>Pedidos | Rodilla</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
                     <path d="M16 8L8 16M8.00001 8L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-            <a href="/" class="nav-logo item">Rodilla</a>
+            <a href="../" class="nav-logo item">Rodilla</a>
             <div class="menu-list">
                 <a class="item" href="panel-carta.html" name="carta">Carta</a>
                 <a class="item" href="panel-reservas.html" name="reservas">Reservas</a>
@@ -32,7 +32,7 @@
             </div>
         </section>
         <header class="navbar glass">
-                <a href="/" class="nav-logo item">Rodilla</a>
+                <a href="../" class="nav-logo item">Rodilla</a>
                 <nav class="nav-menu">
                         <a class="item" href="panel-carta.html" name="carta">Carta</a>
                         <a class="item" href="panel-reservas.html" name="reservas">Reservas</a>
@@ -53,20 +53,22 @@
                 </button>
         </header>
     </div>
-    <section class="mensajes" id="mensajes-section">
+    <section class="pedidos" id="pedidos-section">
         <div class="tabla-container glass">
-            <div class="tabla-block tab-mensajes act" id="tabla-bebidas">
+            <div class="tabla-block tab-pedidos act" id="tabla-pedidos">
                 <table>
                     <thead>
                         <tr>
-                            <th>id_mensaje</th>
+                            <th>id_pedido</th>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Mensaje</th>
+                            <th>Teléfono</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Detalle</th>
                             <th class="del">(D)</th>
                         </tr>
                     </thead>
-                    <tbody id="mensajes-tbody"></tbody>
+                    <tbody id="pedidos-tbody"></tbody>
                 </table>
             </div>
         </div>
@@ -95,8 +97,38 @@
             </div>
         </div>
     </div>
+    <div class="modal-overlay glass" id="detailModal">
+        <div class="modal-content glass detail-modal">
+            <div class="modal-header">
+                <h2>Detalle del pedido</h2>
+                <button class="modal-close" id="detailClose">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M16 8L8 16M8 8L16 16"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Cliente:</strong> <span id="dNombre"></span></p>
+                <p><strong>Teléfono:</strong> <span id="dTelefono"></span></p>
+                <p><strong>Total:</strong> S/ <span id="dTotal"></span></p>
+                <h3>Productos</h3>
+                <div id="dProductos"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCompletar" class="accept-btn">
+                    Marcar como completado
+                </button>
+                <button id="btnCerrarDetalle" class="cancel-btn">
+                    Cerrar
+                </button>
+            </div>
     
+        </div>
+    </div>
     <script src="js/script.js"></script>
-    <script type="module" src="../js/panel-mensajes.js"></script>
+    <script type="module" src="../js/panel-pedidos.js"></script>
 </body>
 </html>

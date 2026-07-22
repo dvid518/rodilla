@@ -1,4 +1,4 @@
-const user="david"
+const user="user"
 const pass="181996"
 
 function esperar(ms){
@@ -7,7 +7,7 @@ function esperar(ms){
 }
 
 function backIndex() {
-    window.location.href="index.html"
+    window.location.href="../"
 }
 
 async function login() {
@@ -24,7 +24,7 @@ async function login() {
         error.classList.remove("act")
         loading.classList.add("active")
         await esperar(3000)
-        window.location.href="admin/panel-carta.html"
+        window.location.href="panel-carta.html"
     } else {
         error.classList.add("act")
         if (isUser) {

@@ -165,7 +165,7 @@ async function confirmReserva() {
     try{
         await addDoc(collection(db,"reservas"),{nombre:nombre, email:email, personas:Number(personas), fecha:fecha, hora:hora})
         alert("Reserva confirmada correctamente")
-        window.location.href="index.html"
+        window.location.href="/"
     } catch (error) {
         console.error("Error guardando reserva:", error)
         alert("No se pudo guardar la reserva")
@@ -174,7 +174,7 @@ async function confirmReserva() {
 
 // editar reserva
 function editReserva() {
-    showPaso(3)
+    showPaso(0)
 }
 
 // hacer funciones accesibles al HTML

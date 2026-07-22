@@ -3,7 +3,7 @@
 <head>
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Panel | Rodilla</title>
+    <title>Reservas | Rodilla</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/panel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,12 +18,13 @@
                     <path d="M16 8L8 16M8.00001 8L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
-            <a href="index.html" class="nav-logo item">Rodilla</a>
+            <a href="../" class="nav-logo item">Rodilla</a>
             <div class="menu-list">
                 <a class="item" href="panel-carta.html" name="carta">Carta</a>
                 <a class="item" href="panel-reservas.html" name="reservas">Reservas</a>
                 <a class="item" href="panel-mensajes.html" name="mensajes">Mensajes</a>
-                <a href="../index.html">
+                <a class="item" href="panel-pedidos.html" name="pedidos">Pedidos</a>
+                <a href="../">
                     <button class="logout-btn">
                         Cerrar Sesión
                     </button>
@@ -31,13 +32,14 @@
             </div>
         </section>
         <header class="navbar glass">
-                <a href="index.html" class="nav-logo item">Rodilla</a>
+                <a href="../" class="nav-logo item">Rodilla</a>
                 <nav class="nav-menu">
                         <a class="item" href="panel-carta.html" name="carta">Carta</a>
                         <a class="item" href="panel-reservas.html" name="reservas">Reservas</a>
                         <a class="item" href="panel-mensajes.html" name="mensajes">Mensajes</a>
+                        <a class="item" href="panel-pedidos.html" name="pedidos">Pedidos</a>
                 </nav>
-                <a href="../index.html">
+                <a href="../">
                     <button class="logout-btn">
                         Cerrar Sesión
                     </button>
@@ -68,29 +70,6 @@
                     </thead>
                     <tbody id="reservas-tbody"></tbody>
                 </table>
-            </div>
-        </div>
-        <div class="form-add-producto" id="form-add-producto">
-            <div class="left">
-                <div class="title" id="title"></div>
-                <input type="text" id="nombre" placeholder="Nombre" autocomplete="off">
-                <input type="number" step="0.01" id="precio" placeholder="Precio">
-                <input type="text" id="img" placeholder="Link de la imagen">
-                <select id="categoria">
-                    <option value="" disabled selected>Categoría</option>
-                    <option value="bebidas">Bebidas</option>
-                    <option value="postres">Postres</option>
-                    <option value="aperitivos">Aperitivos</option>
-                </select>
-                <div class="button-container">
-                    <button id="push"></button>
-                    <button id="del" class="hide-btn">Eliminar</button>
-                    <button id="exit">Salir</button>
-                </div>
-            </div>
-            <div class="right">
-                <div class="img-box" id="img-box">
-                </div>
             </div>
         </div>
     </section>
